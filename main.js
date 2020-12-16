@@ -19,6 +19,24 @@ app.get("/users", (req, res) => {
   res.send({ Names: "Saransh, Pranjal, Rahul" });
 });
 
+// /employee API with optional parameter
+app.get("/employees/:id?", (req, res) => {
+  if (req.params.id) res.send(`Employee with id: ${req.params.id} is selected`);
+  else res.send("All employees selected");
+});
+
+// /employee API with 2 optional separated parameters
+app.get("/employees/:id?/book/:id2?", (req, res) => {
+  res.send(
+    `Employee with id: ${req.params.id} and bookId ${req.params.id2} is selected`
+  );
+});
+
+// /flights API with two optional side by side parameter (can use - in place of . but optional ? doesn't work)
+app.get("/flights/:from?.:to?", (req, res) => {
+  res.send(`Flights from ${req.params.from} to ${req.params.to} are selected`);
+});
+
 //---------------Static files-------------------
 //https://expressjs.com/en/starter/static-files.html
 
