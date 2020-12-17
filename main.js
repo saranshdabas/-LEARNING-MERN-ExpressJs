@@ -37,6 +37,31 @@ app.get("/flights/:from?.:to?", (req, res) => {
   res.send(`Flights from ${req.params.from} to ${req.params.to} are selected`);
 });
 
+// API regex - will match acd and abcd
+app.get("/ab?cd", function (req, res) {
+  res.send("ab?cd");
+});
+
+// API regex - will match 1+ number of bs in bw a and cd
+app.get("/ab+cd", function (req, res) {
+  res.send("ab+cd");
+});
+
+// API regex - will match anything in bw ab and cd e.g abshfdjfcd
+app.get("/ab*cd", function (req, res) {
+  res.send("ab*cd");
+});
+
+// API regex - will match abe and abcde
+app.get("/ab(cd)?e", function (req, res) {
+  res.send("ab(cd)?e");
+});
+
+// API regex - will match butterfly and dragonfly, but not butterflyman
+app.get(/.*fly$/, function (req, res) {
+  res.send("/.*fly$/");
+});
+
 //---------------Static files-------------------
 //https://expressjs.com/en/starter/static-files.html
 
