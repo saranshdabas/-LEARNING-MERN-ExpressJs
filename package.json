@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/saranshdabas/-LEARNING-MERN-ExpressJs#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "twig": "^1.15.4",
+    "pug": "^3.0.0",
+    "ejs": "~2.6.1"
   }
 }
