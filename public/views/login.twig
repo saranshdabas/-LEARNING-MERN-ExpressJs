@@ -6,8 +6,21 @@
     <link href="abc/css/style.css" rel="stylesheet" />
     <p>Enter username and password</p>
     <form method="post">
-      <input type="text" name="username" placeholder="username" />
+      <input type="text" name="username" placeholder="username" value="{{ user.username }}" />
+      {% if (err.username) %}
+      <p>{{ err.username.msg }}</p>
+      {% endif %}
+      <br>
       <input type="text" name="password" placeholder="password" />
+      {% if (err.password) %}
+      <p>{{ err.password.msg }}</p>
+      {% endif %}
+      <br>
+      <input type="text" name="cpassword" placeholder="Confirm password" />
+      {% if (err.cpassword) %}
+      <p>{{ err.cpassword.msg }}</p>
+      {% endif %}
+      <br>
       <button name="submit" type="submit" value="submit">Submit</button>
     </form>
   </body>
